@@ -32,7 +32,11 @@ const App = () => {
           clearAll={clearAll}
         />
       )}
-      <Jobs data={data} setKeywords={addFilterKeywords} />
+      <Jobs
+        data={data}
+        keywords={filterKeywords}
+        setKeywords={addFilterKeywords}
+      />
     </div>
   )
 }

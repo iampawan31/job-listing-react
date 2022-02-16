@@ -5,12 +5,15 @@ const Header = ({ keywords, deleteKeyword, clearAll }) => {
     <div className="header-container">
       <ul>
         {keywords.map((keyword, index) => (
-          <li>
+          <li key={index}>
             <button onClick={() => deleteKeyword(keyword)} key={index}>
               {keyword}
             </button>
           </li>
         ))}
+        <li>
+          <button onClick={clearAll}>Clear All</button>
+        </li>
       </ul>
     </div>
   )

@@ -17,13 +17,13 @@ const Job = ({ job, setKeywords }) => {
 
   const [icon, setIcon] = useState(logo)
 
-  const importSvgs = () => {
-    const logoSvg = import(`${logo}`).then((d) => {
-      setIcon(d.default)
-    })
-  }
-
   useEffect(() => {
+    const importSvgs = () => {
+      import(`${logo}`).then((d) => {
+        setIcon(d.default)
+      })
+    }
+
     importSvgs()
   }, [logo])
 
