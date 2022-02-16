@@ -5,7 +5,7 @@
   --primary-color: hsl(180, 29%, 50%);
   --background-color: hsl(180, 52%, 96%);
   --filter-table: hsl(180, 31%, 95%);
-  --dark-grayish: hsl(180, 8%, 52%);
+  --dark-greyish: hsl(180, 8%, 52%);
   --very-dark-greyish: hsl(180, 14%, 20%);
 }
 
@@ -26,4 +26,10 @@ html {
   font-weight: 500;
   box-sizing: border-box;
   background-color: var(--background-color);
+}
+
+@media only screen and (max-width: 375px) {
+  html {
+    font-size: 0.75rem;
+  }
 }

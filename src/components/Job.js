@@ -30,7 +30,7 @@ const Job = ({ job, setKeywords }) => {
   const keywords = [role, level, ...languages, ...tools]
 
   return (
-    <div className="job-container">
+    <div className={featured ? 'job-container left-border' : 'job-container'}>
       <div className="logo">
         <img src={icon} alt={company} />
       </div>
@@ -43,15 +43,17 @@ const Job = ({ job, setKeywords }) => {
         <div className="position">{position}</div>
         <div className="details">
           <span>{postedAt}</span>
+          <span>&nbsp;•&nbsp;</span>
           <span>{contract}</span>
+          <span>&nbsp;•&nbsp;</span>
           <span>{location}</span>
         </div>
       </div>
       <div className="part2">
         {keywords.map((keyword, index) => (
-          <button onClick={() => setKeywords(keyword)} key={index}>
+          <span onClick={() => setKeywords(keyword)} key={index}>
             {keyword}
-          </button>
+          </span>
         ))}
       </div>
     </div>

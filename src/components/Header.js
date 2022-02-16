@@ -1,4 +1,5 @@
 import React from 'react'
+import close from './images/icon-remove.svg'
 
 const Header = ({ keywords, deleteKeyword, clearAll }) => {
   return (
@@ -6,13 +7,19 @@ const Header = ({ keywords, deleteKeyword, clearAll }) => {
       <ul>
         {keywords.map((keyword, index) => (
           <li key={index}>
-            <button onClick={() => deleteKeyword(keyword)} key={index}>
+            <span key={index}>
               {keyword}
-            </button>
+              <img
+                onClick={() => deleteKeyword(keyword)}
+                src={close}
+                className="close"
+                alt={`Clear ${keyword}`}
+              />
+            </span>
           </li>
         ))}
-        <li>
-          <button onClick={clearAll}>Clear All</button>
+        <li className="clear">
+          <span onClick={clearAll}>Clear</span>
         </li>
       </ul>
     </div>
