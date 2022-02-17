@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-const Job = ({ job, setKeywords }) => {
+const Job = ({ job }) => {
   const {
     company,
     logo,
@@ -51,9 +51,7 @@ const Job = ({ job, setKeywords }) => {
       </div>
       <div className="part2">
         {keywords.map((keyword, index) => (
-          <span onClick={() => setKeywords(keyword)} key={index}>
-            {keyword}
-          </span>
+          <span key={index}>{keyword}</span>
         ))}
       </div>
     </div>

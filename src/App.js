@@ -2,41 +2,20 @@ import { useState } from 'react'
 
 import data from './data.json'
 import Jobs from './components/Jobs'
-import Header from './components/Header'
+import Search from './components/Search'
 
 const App = () => {
-  const [filterKeywords, setFilterKeywords] = useState([])
+  const [filterKeywords, setFilterKeywords] = useState('')
 
-  const addFilterKeywords = (data) => {
-    if (!filterKeywords.includes(data)) {
-      setFilterKeywords([...filterKeywords, data])
-    }
-  }
-
-  const deleteKeyword = (data) => {
-    const newKeywords = filterKeywords.filter((key) => key !== data)
-    setFilterKeywords(newKeywords)
-  }
-
-  const clearAll = () => {
-    setFilterKeywords([])
+  const setSearchKeyword = (data) => {
+    setFilterKeywords(data)
   }
 
   return (
     <div className="App">
       <div className="header"></div>
-      {filterKeywords.length > 0 && (
-        <Header
-          keywords={filterKeywords}
-          deleteKeyword={deleteKeyword}
-          clearAll={clearAll}
-        />
-      )}
-      <Jobs
-        data={data}
-        keywords={filterKeywords}
-        setKeywords={addFilterKeywords}
-      />
+      <Search setSearchKeyword={setSearchKeyword} />
+      <Jobs data={data} keywords={filterKeywords} />
     </div>
   )
 }
