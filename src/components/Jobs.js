@@ -18,6 +18,7 @@ const Jobs = ({ data, keywords }) => {
     }
 
     searchFunc()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [keywords])
 
   return (
